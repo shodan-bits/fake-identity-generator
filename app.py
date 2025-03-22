@@ -5,7 +5,7 @@ import random
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://fake-identity-generator.cyou"}})
+CORS(app, resources={r"/*": {"origins": "https://fake-identity-generator.cyou,fake-identity-generatorr.netlify.app"}})
 fake = Faker()
 
 # Liste d'universités réalistes
