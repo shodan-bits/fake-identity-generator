@@ -1,8 +1,7 @@
-from flask import Flask, jsonify, send_file
+from flask import Flask, jsonify
 from flask_cors import CORS
 from faker import Faker
 import random
-import pdfkit
 import os
 
 app = Flask(__name__)
@@ -47,4 +46,7 @@ def generate_identity():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Récupère le port depuis la variable d'environnement ou utilise 5000 par défaut
+    port = int(os.environ.get("PORT", 5000))
+    # Lance l'application en écoutant sur toutes les interfaces réseau (0.0.0.0)
+    app.run(debug=True, host="0.0.0.0", port=port)
